@@ -74,11 +74,21 @@
     }
     .nav a:hover, .nav a:focus-visible { color: var(--golden-cream); }
     .brand {
-      text-align: center;
-      font-family: var(--serif);
-      font-size: 1.65rem !important;
-      letter-spacing: .06em !important;
-      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .brand-logo {
+      height: 48px;
+      width: auto;
+      max-width: 140px;
+      object-fit: contain;
+      transition: opacity .3s ease, transform .3s ease;
+    }
+    .brand:hover .brand-logo, .brand:focus-visible .brand-logo {
+      opacity: .85;
+      transform: scale(1.03);
     }
     .menu-button {
       display: none;
@@ -196,12 +206,35 @@
     .collection-detail img { aspect-ratio: 16 / 10; object-fit: cover; }
     .collection-detail-copy { display: flex; flex-direction: column; justify-content: center; max-width: 470px; }
     .collection-detail-copy h3 { margin: 0 0 1rem; font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.7rem); font-weight: 400; line-height: 1; }
-    .collection-detail-copy p { color: var(--muted); }
+    .collection-detail-copy p { color: var(--muted); margin: 0; }
+    .collection-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0 0;
+      display: grid;
+      gap: .65rem;
+    }
+    .mobile-only { display: none; }
+    .collection-bullets li {
+      position: relative;
+      padding-left: 1.35rem;
+      font-size: .95rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .collection-bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: -1px;
+      color: var(--warm-sand);
+      font-size: 1.15rem;
+    }
 
     .month { display: grid; grid-template-columns: 1.16fr .84fr; min-height: 760px; }
     .month-image {
       min-height: 620px;
-      background: url("https://images.unsplash.com/photo-1662733853648-329a0d258be4?auto=format&fit=crop&q=88&w=1800") center / cover no-repeat;
+      background: url("/product-month.jpg") center / cover no-repeat;
     }
     .month-copy {
       display: flex;
@@ -263,6 +296,7 @@
     .footer {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       gap: 2rem;
       margin-top: 7rem;
       padding-top: 1.5rem;
@@ -271,14 +305,34 @@
       letter-spacing: .1em;
       text-transform: uppercase;
     }
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .footer-logo {
+      height: 52px;
+      width: auto;
+      max-width: 150px;
+      object-fit: contain;
+      transition: opacity .3s ease, transform .3s ease;
+    }
+    .footer-brand:hover .footer-logo, .footer-brand:focus-visible .footer-logo {
+      opacity: .85;
+      transform: scale(1.03);
+    }
 
     .reveal { opacity: 0; transform: translateY(34px); transition: opacity .8s ease, transform .8s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
     @media (max-width: 860px) {
       .nav { grid-template-columns: 1fr auto; }
-      .brand { text-align: left; }
+      .brand { justify-content: flex-start; }
+      .brand-logo { height: 38px; }
       .menu-button { display: inline-block; }
+      .mobile-only { display: block; }
+      .footer { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+      .footer-logo { height: 44px; }
       .nav-links {
         display: none;
         position: absolute;
@@ -320,10 +374,11 @@
         <a href="#featured-collections">Collections</a>
         <a href="#approach">Approach</a>
       </div>
-      <a class="brand" href="#top" aria-label="Wood Factory home">Wood Factory</a>
+      <a class="brand" href="#top" aria-label="Wood Factory home"><img src="/logo-white.png" alt="Wood Factory - Furniture Crafters" class="brand-logo"></a>
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-links">Menu</button>
       <div class="nav-links" id="mobile-links">
-        <a href="#collection-carousel">Collection</a>
+        <a class="mobile-only" href="#featured-collections">Collections</a>
+        <a class="mobile-only" href="#approach">Approach</a>
         <a href="#customisation">Customisation</a>
         <a href="#contact">Contact</a>
       </div>
@@ -337,22 +392,23 @@
         <h1 class="display" id="hero-title">Furniture made personal.</h1>
         <div class="hero-meta">
           <p>Premium concepts shaped around your space, your style and the way you live.</p>
-          <a class="round-link" href="#product-month">Discover<br>this month</a>
+          <span class="round-link">Discover<br>this month</span>
         </div>
       </div>
     </section>
 
     <section class="month" id="product-month" aria-labelledby="month-title">
-      <div class="month-image" role="img" aria-label="Premium wooden coffee table in a calm interior"></div>
+      <div class="month-image" role="img" aria-label="Sculpted nesting fluted coffee table in natural wood and stone"></div>
       <div class="month-copy">
         <div class="reveal">
           <p class="eyebrow">Product of the month</p>
-          <h2 class="display" id="month-title">The sculpted coffee table</h2>
+          <h2 class="display" id="month-title">The sculpted nesting table</h2>
         </div>
         <div class="reveal">
-          <p>A quiet centrepiece with a warm natural presence. Customise the size, edge profile and finish to complement your living room.</p>
+          <p>A dual-tier centrepiece combining solid handcrafted timber with a fluted tambour drum. Customise the diameter, edge profile and finish to complement your living room.</p>
           <div class="month-details">
-            <div class="month-detail"><span>Category</span><span>Coffee tables</span></div>
+            <div class="month-detail"><span>Category</span><span>Nesting coffee tables</span></div>
+            <div class="month-detail"><span>Craft</span><span>Solid wood & fluted detailing</span></div>
             <div class="month-detail"><span>Finish</span><span>Made to preference</span></div>
             <div class="month-detail"><span>Size</span><span>Custom</span></div>
           </div>
@@ -475,31 +531,71 @@
       <div class="shell">
         <div class="section-head reveal">
           <div>
-            <p class="eyebrow">Explore by category</p>
-            <h2 class="display">Our collection</h2>
+            <p class="eyebrow">Services & expertise</p>
+            <h2 class="display">What we offer</h2>
           </div>
-          <p>Click a category to see more details and imagery.</p>
+          <p>Click an offering to see more details and craftsmanship.</p>
         </div>
         <div class="collection-list">
           <details class="collection-item reveal" name="collection">
-            <summary class="collection-summary"><span class="category-number">01</span><span class="category-name">Living & dining furniture</span></summary>
-            <div class="collection-detail"><img src="https://images.unsplash.com/photo-1687180498602-5a1046defaa4?auto=format&fit=crop&q=88&w=1600" alt="Premium living and dining furniture"><div class="collection-detail-copy"><h3>Made for gathering.</h3><p>Custom seating, tables and dining pieces planned around the room, circulation and the way your family gathers.</p><a class="text-link" href="#contact">Discuss this collection</a></div></div>
+            <summary class="collection-summary"><span class="category-number">01</span><span class="category-name">Custom Interior Design</span></summary>
+            <div class="collection-detail">
+              <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=88&w=1600" alt="Custom interior design by Wood Factory" loading="lazy">
+              <div class="collection-detail-copy">
+                <h3>Spaces shaped around your life.</h3>
+                <p>Tailored interior woodwork and spatial layouts crafted specifically for your home, balancing aesthetic harmony, circulation, and purposeful functionality.</p>
+                <ul class="collection-bullets">
+                  <li>handcrafted furniture pieces</li>
+                  <li>custom dimensions tailored to your architecture</li>
+                  <li>cohesive styling across living, dining, and bedroom spaces</li>
+                </ul>
+              </div>
+            </div>
           </details>
           <details class="collection-item reveal" name="collection">
-            <summary class="collection-summary"><span class="category-number">02</span><span class="category-name">Coffee tables</span></summary>
-            <div class="collection-detail"><img src="https://images.unsplash.com/photo-1662733853648-329a0d258be4?auto=format&fit=crop&q=88&w=1600" alt="Custom wooden coffee table"><div class="collection-detail-copy"><h3>Small scale, strong presence.</h3><p>Refined coffee tables customised through proportion, edge detail, material and finish.</p><a class="text-link" href="#contact">Discuss this collection</a></div></div>
+            <summary class="collection-summary"><span class="category-number">02</span><span class="category-name">Artisan Craftsmanship</span></summary>
+            <div class="collection-detail">
+              <img src="https://images.unsplash.com/photo-1540518614846-7ede433c4550?auto=format&fit=crop&q=88&w=1600" alt="Artisan woodworking craftsmanship" loading="lazy">
+              <div class="collection-detail-copy">
+                <h3>Handcrafted quality with timeless precision.</h3>
+                <p>Every Wood Factory piece reflects dedication to craftsmanship. From material selection to finishing details, our artisans ensure each product embodies quality, durability, and timeless design.</p>
+                <ul class="collection-bullets">
+                  <li>handcrafted furniture pieces</li>
+                  <li>premium natural materials</li>
+                  <li>meticulous finishing details</li>
+                </ul>
+              </div>
+            </div>
           </details>
           <details class="collection-item reveal" name="collection">
-            <summary class="collection-summary"><span class="category-number">03</span><span class="category-name">Wardrobes & TV units</span></summary>
-            <div class="collection-detail"><img src="https://images.unsplash.com/photo-1547822280-d923f07fffbd?auto=format&fit=crop&q=88&w=1600" alt="Custom wardrobe storage"><div class="collection-detail-copy"><h3>Storage shaped by space.</h3><p>Integrated wardrobes and TV units built to organise daily life while keeping the interior visually calm.</p><a class="text-link" href="#contact">Discuss this collection</a></div></div>
+            <summary class="collection-summary"><span class="category-number">03</span><span class="category-name">Lifestyle Collection</span></summary>
+            <div class="collection-detail">
+              <img src="https://images.unsplash.com/photo-1687180498602-5a1046defaa4?auto=format&fit=crop&q=88&w=1600" alt="Wood Factory lifestyle furniture collection" loading="lazy">
+              <div class="collection-detail-copy">
+                <h3>Curated essentials for everyday living.</h3>
+                <p>A distinctive range of living, dining, and bedroom furniture designed to elevate daily rituals with understated luxury, ergonomic comfort, and lasting presence.</p>
+                <ul class="collection-bullets">
+                  <li>signature living & dining furniture</li>
+                  <li>sculpted coffee tables & accent pieces</li>
+                  <li>tailored wardrobes, TV units & cots</li>
+                </ul>
+              </div>
+            </div>
           </details>
           <details class="collection-item reveal" name="collection">
-            <summary class="collection-summary"><span class="category-number">04</span><span class="category-name">Cots & side tables</span></summary>
-            <div class="collection-detail"><img src="https://images.unsplash.com/photo-1687180498602-5a1046defaa4?auto=format&fit=crop&q=88&w=1600" alt="Premium bedroom furniture"><div class="collection-detail-copy"><h3>A quieter bedroom.</h3><p>Coordinated cots and side tables made to the right dimensions, comfort and visual weight for your room.</p><a class="text-link" href="#contact">Discuss this collection</a></div></div>
-          </details>
-          <details class="collection-item reveal" name="collection">
-            <summary class="collection-summary"><span class="category-number">05</span><span class="category-name">Home decor</span></summary>
-            <div class="collection-detail"><img src="https://images.unsplash.com/photo-1662733853648-329a0d258be4?auto=format&fit=crop&q=88&w=1600" alt="Minimal home decor and furniture"><div class="collection-detail-copy"><h3>The finishing layer.</h3><p>Considered decor pieces chosen to connect the furniture, palette and atmosphere of your interior.</p><a class="text-link" href="#contact">Discuss this collection</a></div></div>
+            <summary class="collection-summary"><span class="category-number">04</span><span class="category-name">Professional Client Support</span></summary>
+            <div class="collection-detail">
+              <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=88&w=1600" alt="Professional furniture design and consultation" loading="lazy">
+              <div class="collection-detail-copy">
+                <h3>Seamless guidance from concept to installation.</h3>
+                <p>Our dedicated team in Kothamangalam assists you through every stage—from initial consultations and material sampling to precise fabrication, timely delivery, and on-site setup.</p>
+                <ul class="collection-bullets">
+                  <li>one-on-one consultation with our crafters</li>
+                  <li>timber, finish, and upholstery selection guidance</li>
+                  <li>direct delivery & professional on-site installation</li>
+                </ul>
+              </div>
+            </div>
           </details>
         </div>
       </div>
@@ -520,7 +616,7 @@
           </div>
         </div>
         <footer class="footer">
-          <span>Wood Factory · Furniture Crafters</span>
+          <a class="footer-brand" href="#top" aria-label="Wood Factory home"><img src="/logo.png" alt="Wood Factory - Furniture Crafters" class="footer-logo"></a>
           <span>Quality is our confidence.</span>
         </footer>
       </div>
