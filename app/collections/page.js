@@ -280,7 +280,7 @@ export default function CollectionsPage() {
     if (!arrivals) return;
 
     const arrivalsTrack = arrivals.querySelector(".arrivals-track");
-    const originalArrivalCards = [...arrivals.querySelectorAll(".arrival-card")];
+    const originalArrivalCards = [...arrivals.querySelectorAll('.arrival-card:not([aria-hidden="true"])')];
     const arrivalsProgress = arrivals.querySelector(".arrivals-progress span");
     const arrivalsPrevious = document.querySelector(".arrivals-prev");
     const arrivalsNext = document.querySelector(".arrivals-next");
