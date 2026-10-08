@@ -5,17 +5,17 @@ import { useEffect, useRef } from "react";
 const INDEX_HTML = `
   <header class="site-header">
     <nav class="nav shell" aria-label="Main navigation">
-      <div class="nav-links" aria-hidden="true">
-        <a href="#featured-collections">Collections</a>
-        <a href="#approach">Approach</a>
+      <div class="nav-links">
+        <a href="/collections">Collections</a>
+        <a href="/approach">Approach</a>
       </div>
-      <a class="brand" href="#top" aria-label="Wood Factory home"><img src="/logo-white.png" alt="Wood Factory - Furniture Crafters" class="brand-logo"></a>
+      <a class="brand" href="/" aria-label="Alder & Form home"><img src="/alder-form-light.svg" alt="Alder & Form - Furniture Crafters" class="brand-logo"></a>
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-links">Menu</button>
       <div class="nav-links" id="mobile-links">
-        <a class="mobile-only" href="#featured-collections">Collections</a>
-        <a class="mobile-only" href="#approach">Approach</a>
-        <a href="#customisation">Customisation</a>
-        <a href="#contact">Contact</a>
+        <a class="mobile-only" href="/collections">Collections</a>
+        <a class="mobile-only" href="/approach">Approach</a>
+        <a href="/customisation">Customisation</a>
+        <a href="/contact">Contact</a>
       </div>
     </nav>
   </header>
@@ -23,11 +23,11 @@ const INDEX_HTML = `
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-content shell">
-        <p class="eyebrow">Furniture crafters · Kothamangalam</p>
+        <p class="eyebrow">Furniture & interiors · Considered living</p>
         <h1 class="display" id="hero-title">Furniture made personal.</h1>
         <div class="hero-meta">
           <p>Premium concepts shaped around your space, your style and the way you live.</p>
-          <span class="round-link">Discover<br>this month</span>
+          <a class="round-link" href="#product-month">Discover<br>this month</a>
         </div>
       </div>
     </section>
@@ -65,28 +65,28 @@ const INDEX_HTML = `
         </div>
         <div class="arrivals-window reveal" aria-roledescription="carousel" aria-label="Featured furniture collections">
           <div class="arrivals-track">
-            <article class="arrival-card">
+            <article class="arrival-card is-center">
               <img src="https://images.unsplash.com/photo-1662733853648-329a0d258be4?auto=format&fit=crop&q=88&w=1200" alt="Sculpted wooden coffee table" loading="lazy">
-              <div class="arrival-card-body"><h3>Sculpted Coffee Table</h3><span class="arrival-tag">Collection</span><p>Custom dimensions · Made to order</p></div>
+              <div class="arrival-card-body"><h3><a href="/collections/nesting-table">Sculpted Coffee Table ↗</a></h3><span class="arrival-tag">Collection</span><p>Custom dimensions · Made to order</p></div>
             </article>
             <article class="arrival-card">
               <img src="https://images.unsplash.com/photo-1687180498602-5a1046defaa4?auto=format&fit=crop&q=88&w=1200" alt="Premium living room furniture" loading="lazy">
-              <div class="arrival-card-body"><h3>Living Room Collection</h3><span class="arrival-tag">Collection</span><p>Premium concept · Custom finish</p></div>
+              <div class="arrival-card-body"><h3><a href="/collections/living">Living Room Collection ↗</a></h3><span class="arrival-tag">Collection</span><p>Premium concept · Custom finish</p></div>
             </article>
             <article class="arrival-card">
               <img src="https://images.unsplash.com/photo-1547822280-d923f07fffbd?auto=format&fit=crop&q=88&w=1200" alt="Custom wardrobe interior" loading="lazy">
-              <div class="arrival-card-body"><h3>Tailored Wardrobe</h3><span class="arrival-tag">Collection</span><p>Made to measure · Custom storage</p></div>
+              <div class="arrival-card-body"><h3><a href="/collections/wardrobe">Tailored Wardrobe ↗</a></h3><span class="arrival-tag">Collection</span><p>Made to measure · Custom storage</p></div>
             </article>
             <article class="arrival-card">
-              <img src="https://images.unsplash.com/photo-1687180498602-5a1046defaa4?auto=format&fit=crop&q=88&w=1200" alt="Premium dining furniture" loading="lazy">
-              <div class="arrival-card-body"><h3>Dining Table Collection</h3><span class="arrival-tag">Collection</span><p>Designed for your space · Made to order</p></div>
+              <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&q=88&w=1200" alt="Handcrafted dining table and chairs" loading="lazy">
+              <div class="arrival-card-body"><h3><a href="/collections/dining">Dining Table Collection ↗</a></h3><span class="arrival-tag">Collection</span><p>Designed for your space · Made to order</p></div>
             </article>
             <article class="arrival-card">
-              <img src="https://images.unsplash.com/photo-1662733853648-329a0d258be4?auto=format&fit=crop&q=88&w=1200" alt="Wooden side table and home decor" loading="lazy">
-              <div class="arrival-card-body"><h3>Side Table Series</h3><span class="arrival-tag">Collection</span><p>Refined details · Custom material</p></div>
+              <img src="https://images.unsplash.com/photo-1532372320572-cda25653a26d?auto=format&fit=crop&q=88&w=1200" alt="Artisan wooden side table" loading="lazy">
+              <div class="arrival-card-body"><h3><a href="/collections/side-tables">Side Table Series ↗</a></h3><span class="arrival-tag">Collection</span><p>Refined details · Custom material</p></div>
             </article>
           </div>
-          <div class="arrivals-progress" aria-hidden="true"><span></span></div>
+          <div class="arrivals-progress" aria-hidden="true"><span style="transform: scaleX(0.2);"></span></div>
         </div>
       </div>
     </section>
@@ -95,10 +95,10 @@ const INDEX_HTML = `
       <div class="shell">
         <div class="intro-grid reveal">
           <p class="eyebrow">Our approach</p>
-          <h2 class="display">Quality is our confidence.</h2>
+          <h2 class="display">Crafted for the way you live.</h2>
         </div>
         <div class="intro-foot reveal">
-          <p>Every Wood Factory piece begins with a premium concept and is customised to suit the customer's space, style and requirements.</p>
+          <p>Every Alder & Form piece begins with a premium concept and is customised to suit the customer's space, style and requirements.</p>
           <p>From living spaces to wardrobes and bedroom furniture, each solution balances considered proportions, purposeful storage and a refined finish.</p>
         </div>
       </div>
@@ -113,7 +113,7 @@ const INDEX_HTML = `
           </div>
           <p>Each slide pauses briefly so you can take in the details.</p>
         </div>
-        <div class="carousel reveal" aria-roledescription="carousel" aria-label="Wood Factory collection">
+        <div class="carousel reveal" aria-roledescription="carousel" aria-label="Alder & Form collection">
           <div class="carousel-viewport">
             <div class="carousel-track">
               <article class="carousel-slide" aria-label="1 of 3">
@@ -175,7 +175,7 @@ const INDEX_HTML = `
           <details class="collection-item reveal" name="collection">
             <summary class="collection-summary"><span class="category-number">01</span><span class="category-name">Custom Interior Design</span></summary>
             <div class="collection-detail">
-              <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=88&w=1600" alt="Custom interior design by Wood Factory" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=88&w=1600" alt="Custom interior design by Alder & Form" loading="lazy">
               <div class="collection-detail-copy">
                 <h3>Spaces shaped around your life.</h3>
                 <p>Tailored interior woodwork and spatial layouts crafted specifically for your home, balancing aesthetic harmony, circulation, and purposeful functionality.</p>
@@ -193,7 +193,7 @@ const INDEX_HTML = `
               <img src="https://images.unsplash.com/photo-1540518614846-7ede433c4550?auto=format&fit=crop&q=88&w=1600" alt="Artisan woodworking craftsmanship" loading="lazy">
               <div class="collection-detail-copy">
                 <h3>Handcrafted quality with timeless precision.</h3>
-                <p>Every Wood Factory piece reflects dedication to craftsmanship. From material selection to finishing details, our artisans ensure each product embodies quality, durability, and timeless design.</p>
+                <p>Every Alder & Form piece reflects dedication to craftsmanship. From material selection to finishing details, our artisans ensure each product embodies quality, durability, and timeless design.</p>
                 <ul class="collection-bullets">
                   <li>handcrafted furniture pieces</li>
                   <li>premium natural materials</li>
@@ -205,7 +205,7 @@ const INDEX_HTML = `
           <details class="collection-item reveal" name="collection">
             <summary class="collection-summary"><span class="category-number">03</span><span class="category-name">Lifestyle Collection</span></summary>
             <div class="collection-detail">
-              <img src="https://images.unsplash.com/photo-1687180498602-5a1046defaa4?auto=format&fit=crop&q=88&w=1600" alt="Wood Factory lifestyle furniture collection" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1687180498602-5a1046defaa4?auto=format&fit=crop&q=88&w=1600" alt="Alder & Form lifestyle furniture collection" loading="lazy">
               <div class="collection-detail-copy">
                 <h3>Curated essentials for everyday living.</h3>
                 <p>A distinctive range of living, dining, and bedroom furniture designed to elevate daily rituals with understated luxury, ergonomic comfort, and lasting presence.</p>
@@ -223,7 +223,7 @@ const INDEX_HTML = `
               <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=88&w=1600" alt="Professional furniture design and consultation" loading="lazy">
               <div class="collection-detail-copy">
                 <h3>Seamless guidance from concept to installation.</h3>
-                <p>Our dedicated team in Kothamangalam assists you through every stage—from initial consultations and material sampling to precise fabrication, timely delivery, and on-site setup.</p>
+                <p>Our design team assists you through every stage—from initial consultations and material sampling to precise fabrication, timely delivery, and on-site setup.</p>
                 <ul class="collection-bullets">
                   <li>one-on-one consultation with our crafters</li>
                   <li>timber, finish, and upholstery selection guidance</li>
@@ -244,15 +244,16 @@ const INDEX_HTML = `
             <h2 class="display">Let’s make it yours.</h2>
           </div>
           <div class="contact-details reveal">
-            <a href="tel:+919207977256"><strong>Call</strong>Riaz A.S. · 9207977256</a>
-            <a href="mailto:wood.factorynf@gmail.com"><strong>Email</strong>wood.factorynf@gmail.com</a>
-            <a href="https://www.instagram.com/Wood_factorynf" target="_blank" rel="noreferrer"><strong>Instagram</strong>@Wood_factorynf</a>
-            <address><strong>Visit</strong>Aluva Munnar Road, Nellikkuzhi<br>Kothamangalam, Ernakulam</address>
+            <a href="/contact"><strong>Enquiries</strong>Talk about your space →</a>
+            <a href="mailto:hello@adloom.marketing"><strong>Email</strong>hello@adloom.marketing</a>
+            <a href="/customisation"><strong>Made personal</strong>Explore customisation →</a>
+            <p><strong>Alder &amp; Form</strong>Furniture &amp; interiors · A portfolio concept</p>
+            <a href="/contact" style="margin-top:.5rem;display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.75rem;background:var(--ink);color:var(--pearl-white);border-radius:3px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;">Start a project →</a>
           </div>
         </div>
         <footer class="footer">
-          <a class="footer-brand" href="#top" aria-label="Wood Factory home"><img src="/logo.png" alt="Wood Factory - Furniture Crafters" class="footer-logo"></a>
-          <span>Quality is our confidence.</span>
+          <a class="footer-brand" href="/" aria-label="Alder & Form home"><img src="/alder-form.svg" alt="Alder & Form - Furniture Crafters" class="footer-logo"></a>
+          <div style="display:flex;gap:1.2rem;flex-wrap:wrap"><a href="/collections">Collections</a><a href="/approach">Approach</a><a href="/faq">FAQs</a><a href="/contact">Contact</a></div><span>Crafted for the way you live.</span>
         </footer>
       </div>
     </section>
@@ -506,16 +507,40 @@ const INDEX_CSS = `
     .arrivals-controls { display: flex; gap: .65rem; }
     .arrivals-button { width: 48px; height: 48px; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); background: transparent; cursor: pointer; }
     .arrivals-button:hover, .arrivals-button:focus-visible { color: var(--pearl-white); background: var(--ink); }
-    .arrivals-window { overflow: hidden; }
-    .arrivals-track { display: flex; gap: 20px; transition: transform .75s cubic-bezier(.22,.61,.36,1); will-change: transform; }
-    .arrival-card { flex: 0 0 calc((100% - 40px) / 3); min-width: 0; }
-    .arrival-card img { aspect-ratio: 4 / 5; object-fit: cover; background: var(--pale-sand); }
-    .arrival-card-body { display: grid; grid-template-columns: 1fr auto; gap: .75rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
+    .arrivals-window { overflow: hidden; width: 100%; padding: 30px 0; margin: -30px 0; }
+    .arrivals-track { display: flex; gap: 24px; transition: transform .55s cubic-bezier(.22,.61,.36,1); will-change: transform; align-items: center; }
+    .arrival-card {
+      flex: 0 0 calc((100% - 48px) / 3);
+      width: calc((100% - 48px) / 3);
+      max-width: calc((100% - 48px) / 3);
+      min-width: 0;
+      position: relative;
+      background: var(--pearl-white);
+      border-radius: 8px;
+      transition: transform .6s cubic-bezier(.22,.61,.36,1), filter .6s ease, opacity .6s ease, box-shadow .6s ease;
+      transform: scale(0.95);
+      opacity: 0.5;
+      filter: blur(3px) saturate(0.4);
+      z-index: 1;
+    }
+    .arrival-card.is-center {
+      transform: scale(1.06) translateY(-12px);
+      opacity: 1 !important;
+      filter: blur(0px) saturate(1) !important;
+      box-shadow: 0 24px 48px -12px rgba(23, 23, 19, 0.25);
+      z-index: 10;
+    }
+    .arrival-card:not(.is-center):hover {
+      opacity: 0.75;
+      filter: blur(1.5px) saturate(0.7);
+    }
+    .arrival-card img { aspect-ratio: 4 / 5; object-fit: cover; background: var(--pale-sand); border-radius: 8px 8px 0 0; }
+    .arrival-card-body { display: grid; grid-template-columns: 1fr auto; gap: .75rem; padding: 1.25rem 1.1rem; border-bottom: 1px solid var(--line); }
     .arrival-card h3 { margin: 0; font-family: var(--serif); font-size: clamp(1.6rem, 2.2vw, 2.25rem); font-weight: 400; line-height: 1.05; }
     .arrival-card p { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: .86rem; }
     .arrival-tag { align-self: start; padding: .28rem .55rem; border: 1px solid var(--line); border-radius: 999px; font-size: .66rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
-    .arrivals-progress { height: 2px; margin-top: 2.2rem; background: var(--light-sand); }
-    .arrivals-progress span { display: block; width: 33.333%; height: 100%; background: var(--ink); transition: transform .75s cubic-bezier(.22,.61,.36,1); transform-origin: left; }
+    .arrivals-progress { height: 3px; margin-top: 2.5rem; background: var(--light-sand); border-radius: 999px; overflow: hidden; }
+    .arrivals-progress span { display: block; width: 100%; height: 100%; background: var(--ink); border-radius: 999px; transition: transform .55s cubic-bezier(.22,.61,.36,1); transform-origin: left; will-change: transform; }
 
     .craft { padding: clamp(5rem, 10vw, 9rem) 0; background: var(--ink); color: var(--pearl-white); }
     .craft-grid { display: grid; grid-template-columns: 1fr 1.45fr; gap: 8vw; align-items: end; }
@@ -625,6 +650,11 @@ export default function Home() {
     if (isInitialized.current) return;
     isInitialized.current = true;
 
+    let carouselTimer;
+    let carouselTimeout;
+    let arrivalsTimer;
+    let arrivalsTimeout;
+
     const button = document.querySelector('.menu-button');
     const mobileLinks = document.querySelector('#mobile-links');
     if (button && mobileLinks) {
@@ -641,8 +671,9 @@ export default function Home() {
       }));
     }
 
+    const reduceMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     const carousel = document.querySelector('.carousel');
-    let carouselTimer;
     if (carousel) {
       const track = carousel.querySelector('.carousel-track');
       const slides = [...carousel.querySelectorAll('.carousel-slide')];
@@ -661,21 +692,28 @@ export default function Home() {
         });
       }
 
-      function startCarousel() {
+      function stopCarousel() {
+        clearTimeout(carouselTimeout);
         clearInterval(carouselTimer);
-        carouselTimer = setInterval(() => showSlide(currentSlide + 1), 4600);
       }
 
-      if (previous) previous.addEventListener('click', () => { showSlide(currentSlide - 1); startCarousel(); });
-      if (next) next.addEventListener('click', () => { showSlide(currentSlide + 1); startCarousel(); });
-      dots.forEach((dot, index) => dot.addEventListener('click', () => { showSlide(index); startCarousel(); }));
-      carousel.addEventListener('mouseenter', () => clearInterval(carouselTimer));
-      carousel.addEventListener('mouseleave', startCarousel);
-      carousel.addEventListener('focusin', () => clearInterval(carouselTimer));
-      carousel.addEventListener('focusout', startCarousel);
-    }
+      function startCarousel(initialDelay = 1000) {
+        stopCarousel();
+        carouselTimeout = setTimeout(() => {
+          showSlide(currentSlide + 1);
+          carouselTimer = setInterval(() => showSlide(currentSlide + 1), 2400);
+        }, initialDelay);
+      }
 
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (previous) previous.addEventListener('click', () => { showSlide(currentSlide - 1); startCarousel(1800); });
+      if (next) next.addEventListener('click', () => { showSlide(currentSlide + 1); startCarousel(1800); });
+      dots.forEach((dot, index) => dot.addEventListener('click', () => { showSlide(index); startCarousel(1800); }));
+      carousel.addEventListener('mouseenter', stopCarousel);
+      carousel.addEventListener('mouseleave', () => startCarousel(1500));
+      carousel.addEventListener('focusin', stopCarousel);
+      carousel.addEventListener('focusout', () => startCarousel(1500));
+      if (!reduceMotion) startCarousel(1000);
+    }
     if (reduceMotion || !('IntersectionObserver' in window)) {
       document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
     } else {
@@ -691,22 +729,21 @@ export default function Home() {
     }
 
     const arrivals = document.querySelector('.arrivals-window');
-    let arrivalsTimer;
     if (arrivals) {
       const arrivalsTrack = arrivals.querySelector('.arrivals-track');
       const originalArrivalCards = [...arrivals.querySelectorAll('.arrival-card')];
       const arrivalsProgress = arrivals.querySelector('.arrivals-progress span');
       const arrivalsPrevious = document.querySelector('.arrivals-prev');
       const arrivalsNext = document.querySelector('.arrivals-next');
-      const arrivalCloneCount = Math.min(3, originalArrivalCards.length);
+      const numOriginal = originalArrivalCards.length;
 
       if (arrivalsTrack && !arrivalsTrack.querySelector('[aria-hidden="true"]')) {
-        originalArrivalCards.slice(-arrivalCloneCount).forEach(card => {
+        originalArrivalCards.slice().reverse().forEach(card => {
           const clone = card.cloneNode(true);
           clone.setAttribute('aria-hidden', 'true');
           arrivalsTrack.prepend(clone);
         });
-        originalArrivalCards.slice(0, arrivalCloneCount).forEach(card => {
+        originalArrivalCards.forEach(card => {
           const clone = card.cloneNode(true);
           clone.setAttribute('aria-hidden', 'true');
           arrivalsTrack.append(clone);
@@ -714,83 +751,98 @@ export default function Home() {
       }
 
       const arrivalCards = arrivalsTrack ? [...arrivalsTrack.querySelectorAll('.arrival-card')] : [];
-      let arrivalIndex = arrivalCloneCount;
+      let centerIndex = numOriginal;
+
+      function getTrackIndex() {
+        const isMobile = window.innerWidth <= 860;
+        return isMobile ? centerIndex : centerIndex - 1;
+      }
 
       function arrivalStep() {
         if (!arrivalCards.length || !arrivalsTrack) return 0;
         const first = arrivalCards[0];
-        const gap = parseFloat(getComputedStyle(arrivalsTrack).gap) || 20;
-        return first.getBoundingClientRect().width + gap;
+        const gap = parseFloat(getComputedStyle(arrivalsTrack).gap) || 24;
+        return first.offsetWidth + gap;
       }
 
       function updateArrivalsProgress() {
-        if (!arrivalsProgress || !originalArrivalCards.length) return;
-        const logicalIndex = ((arrivalIndex - arrivalCloneCount) % originalArrivalCards.length + originalArrivalCards.length) % originalArrivalCards.length;
-        const progressWidth = (logicalIndex + 1) / originalArrivalCards.length;
+        if (!arrivalsProgress || !numOriginal) return;
+        const logicalIndex = ((centerIndex % numOriginal) + numOriginal) % numOriginal;
+        const progressWidth = (logicalIndex + 1) / numOriginal;
         arrivalsProgress.style.transform = `scaleX(${progressWidth})`;
+      }
+
+      function updateArrivalCardStates() {
+        if (!arrivalCards.length) return;
+        arrivalCards.forEach((card, i) => {
+          card.classList.toggle('is-center', i === centerIndex);
+        });
+      }
+
+      function jumpTo(index) {
+        if (!arrivalsTrack) return;
+        centerIndex = index;
+        arrivalsTrack.style.transition = 'none';
+        arrivalsTrack.style.transform = `translateX(-${getTrackIndex() * arrivalStep()}px)`;
+        updateArrivalCardStates();
+        updateArrivalsProgress();
+        void arrivalsTrack.offsetWidth;
       }
 
       function positionArrivals(animate = true) {
         if (!arrivalsTrack) return;
-        arrivalsTrack.style.transition = animate ? '' : 'none';
-        arrivalsTrack.style.transform = `translateX(-${arrivalIndex * arrivalStep()}px)`;
+        arrivalsTrack.style.transition = animate ? 'transform .55s cubic-bezier(.22,.61,.36,1)' : 'none';
+        arrivalsTrack.style.transform = `translateX(-${getTrackIndex() * arrivalStep()}px)`;
+        updateArrivalCardStates();
         updateArrivalsProgress();
-        if (!animate) requestAnimationFrame(() => { if (arrivalsTrack) arrivalsTrack.style.transition = ''; });
+        if (!animate) void arrivalsTrack.offsetWidth;
       }
 
       function showArrival(index) {
-        arrivalIndex = index;
+        centerIndex = index;
         positionArrivals(true);
       }
 
-      function startArrivals() {
+      function stopArrivals() {
+        clearTimeout(arrivalsTimeout);
         clearInterval(arrivalsTimer);
-        arrivalsTimer = setInterval(() => showArrival(arrivalIndex + 1), 3800);
       }
 
-      if (arrivalsPrevious) arrivalsPrevious.addEventListener('click', () => { showArrival(arrivalIndex - 1); startArrivals(); });
-      if (arrivalsNext) arrivalsNext.addEventListener('click', () => { showArrival(arrivalIndex + 1); startArrivals(); });
-      arrivals.addEventListener('mouseenter', () => clearInterval(arrivalsTimer));
-      arrivals.addEventListener('mouseleave', startArrivals);
-      arrivals.addEventListener('focusin', () => clearInterval(arrivalsTimer));
-      arrivals.addEventListener('focusout', startArrivals);
+      function startArrivals(initialDelay = 600) {
+        stopArrivals();
+        arrivalsTimeout = setTimeout(() => {
+          showArrival(centerIndex + 1);
+          arrivalsTimer = setInterval(() => showArrival(centerIndex + 1), 1600);
+        }, initialDelay);
+      }
+
+      if (arrivalsPrevious) arrivalsPrevious.addEventListener('click', () => { showArrival(centerIndex - 1); startArrivals(1800); });
+      if (arrivalsNext) arrivalsNext.addEventListener('click', () => { showArrival(centerIndex + 1); startArrivals(1800); });
+      arrivals.addEventListener('mouseenter', stopArrivals);
+      arrivals.addEventListener('mouseleave', () => startArrivals(1200));
+      arrivals.addEventListener('focusin', stopArrivals);
+      arrivals.addEventListener('focusout', () => startArrivals(1200));
+
       if (arrivalsTrack) {
-        arrivalsTrack.addEventListener('transitionend', () => {
-          if (arrivalIndex >= arrivalCloneCount + originalArrivalCards.length) {
-            arrivalIndex = arrivalCloneCount;
-            positionArrivals(false);
-          } else if (arrivalIndex < arrivalCloneCount) {
-            arrivalIndex = arrivalCloneCount + originalArrivalCards.length - 1;
-            positionArrivals(false);
+        arrivalsTrack.addEventListener('transitionend', (e) => {
+          if (e.target !== arrivalsTrack || e.propertyName !== 'transform') return;
+          if (centerIndex >= numOriginal * 2) {
+            jumpTo(centerIndex - numOriginal);
+          } else if (centerIndex < numOriginal) {
+            jumpTo(centerIndex + numOriginal);
           }
         });
       }
-      window.addEventListener('resize', () => positionArrivals(false));
-      positionArrivals(false);
-      if (!reduceMotion) startArrivals();
-    }
 
-    if (!reduceMotion && carousel) {
-      clearInterval(carouselTimer);
-      carouselTimer = setInterval(() => {
-        const track = carousel.querySelector('.carousel-track');
-        const slides = [...carousel.querySelectorAll('.carousel-slide')];
-        const dots = [...carousel.querySelectorAll('.carousel-dot')];
-        if (slides.length) {
-          const activeDot = dots.findIndex(d => d.classList.contains('active'));
-          const nextIndex = (activeDot + 1) % slides.length;
-          if (track) track.style.transform = `translateX(-${nextIndex * 100}%)`;
-          dots.forEach((dot, dotIndex) => {
-            dot.classList.toggle('active', dotIndex === nextIndex);
-            if (dotIndex === nextIndex) dot.setAttribute('aria-current', 'true');
-            else dot.removeAttribute('aria-current');
-          });
-        }
-      }, 4600);
+      window.addEventListener('resize', () => jumpTo(centerIndex));
+      jumpTo(numOriginal);
+      if (!reduceMotion) startArrivals(600);
     }
 
     return () => {
+      clearTimeout(carouselTimeout);
       clearInterval(carouselTimer);
+      clearTimeout(arrivalsTimeout);
       clearInterval(arrivalsTimer);
     };
   }, []);

@@ -12,9 +12,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Wood Factory | Premium Custom Furniture",
+  icons: { icon: "/alder-icon.svg" },
+  title: "Alder & Form | Premium Custom Furniture",
   description:
-    "Wood Factory creates premium custom furniture for living, dining, bedrooms and home interiors in Kothamangalam, Ernakulam.",
+    "Alder & Form is a furniture and interiors portfolio concept. Explore considered collections, natural materials and made-to-measure design.",
 };
 
 export default function RootLayout({ children }) {
