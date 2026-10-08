@@ -123,7 +123,7 @@ const COLLECTIONS_CSS = `
 
   @media (max-width: 860px) {
     .arrivals-head { align-items: start; flex-direction: column; }
-    .arrival-card { flex-basis: 84%; }
+    .arrival-card { flex-basis: 84%; width: 84%; max-width: 84%; }
     .collection-detail { grid-template-columns: 1fr; padding-left: 0; }
     .collection-summary { grid-template-columns: 50px 1fr auto; gap: 1rem; }
     .section-head { align-items: start; flex-direction: column; }
@@ -145,7 +145,7 @@ const ARRIVALS_HTML = `
           <button class="arrivals-button arrivals-next" type="button" aria-label="Next collection">→</button>
         </div>
       </div>
-      <div class="arrivals-window reveal" aria-roledescription="carousel" aria-label="Featured furniture collections">
+      <div class="arrivals-window" aria-roledescription="carousel" aria-label="Featured furniture collections">
         <div class="arrivals-track">
           <article class="arrival-card is-center">
             <img src="https://images.unsplash.com/photo-1662733853648-329a0d258be4?auto=format&fit=crop&q=88&w=1200" alt="Sculpted wooden coffee table" loading="lazy">
@@ -349,9 +349,15 @@ export default function CollectionsPage() {
     }
 
     function showArrival(index) {
-      centerIndex = index;
-      positionArrivals(true);
-    }
+        if (!numOriginal) return;
+        const direction = index - centerIndex;
+        // Recover the loop even when the browser skips transitionend in a hidden tab.
+        if (centerIndex < numOriginal || centerIndex >= numOriginal * 2) {
+          jumpTo(((centerIndex % numOriginal) + numOriginal) % numOriginal + numOriginal);
+        }
+        centerIndex += direction;
+        positionArrivals(true);
+      }
 
     function stopArrivals() {
       clearTimeout(arrivalsTimeout);
